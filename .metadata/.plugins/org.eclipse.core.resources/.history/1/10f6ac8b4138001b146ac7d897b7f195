@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<%
+String section = request.getParameter("section") != null ? request.getParameter("section") : "";
+%>
+</head>
+<body>
+<a href="http://localhost:8080/center/index.jsp?a">a</a>
+<a href="?section=b">b</a>
+<a href="?section=c">c</a>
+		<%
+		switch(section){
+		case "insert":
+			%> <%@include file="pages/a.jsp" %><%
+			break;
+		case "select":
+			%><%@include file="pages/b.jsp" %><%
+			break;
+		default:
+			%><%@include file="pages/c.jsp" %><% 
+		}
+		%>
+</body>
+</html>
